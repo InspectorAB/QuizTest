@@ -16,7 +16,12 @@ app.get('/',(req,res) =>{
 
 app.post("/auth/login",(req,res) =>{
     const {username,password} = req.body;
-    console.log({username,password});
+    const isUserVerified = userdata.data.some(user => user.username === username && user.password === password)
+    if(isUserVerified){
+        res.json({message:"User Verified"})
+    }else{
+        res.json({message:"Invalid cred"})
+    }
 })
 
 app.use("/quiz",quizRouter);
