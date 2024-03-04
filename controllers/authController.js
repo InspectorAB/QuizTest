@@ -33,4 +33,4 @@ const loginHandler = (req, res) => {
         }
 }
 
-module.exports = loginHandler;
+module.exports = { signupHandler, loginHandler };
