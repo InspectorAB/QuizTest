@@ -3,10 +3,10 @@ const express = require('express');
 const {loginHandler} = require("../controllers/authController");
 
 const loginRouter = express.Router();
-const signupRouter = express.Router();
+//const signupRouter = express.Router();
 
 loginRouter.route("/")
-    .post(loginHandler)
+    .post(loginHandler);
 
 // signupRouter.route("/")
 //     .post(signupHandler)
