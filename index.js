@@ -15,7 +15,7 @@ app.get('/',(req,res) =>{
     res.send('Hello Borld!')
 })
 
-app.use("/auth/login", loginRouter);
+app.post("/auth/login", loginRouter);
 //app.use("/auth/signup", signupRouter);
 app.use("/quiz",quizRouter);
 
