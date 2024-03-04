@@ -32,4 +32,4 @@ const loginHandler = (req, res) => {
         }
 }
 
-module.exports = { loginHandler, signupHandler };;
+module.exports = loginHandler;
