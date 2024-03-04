@@ -16,7 +16,7 @@ app.get('/',(req,res) =>{
 
 app.post("/auth/login",(req,res) =>{
     const {username,password} = req.body;
-    const isUserVerified = userdata.data.some(user => user.username === username && user.password === password)
+    const isUserVerified = userData.data.some(user => user.username === username && user.password === password)
     if(isUserVerified){
         res.json({message:"User Verified"})
     }else{
