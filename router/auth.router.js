@@ -6,8 +6,11 @@ const loginRouter = express.Router();
 const signupRouter = express.Router();
 
 loginRouter.route("/")
-.post(loginHandler)
-
+    .post((req, res, next) => {
+        // Middleware logic here if needed
+        loginHandler(req, res, next); // Call the controller function within the middleware
+    });
+    
 signupRouter.route("/")
 .post(signupHandler)
 
