@@ -23,7 +23,7 @@ const signupHandler = (req, res) => {
 
 const loginHandler = (req, res) => {
     const { username, password } = req.body;
-        const isUserVerified = userdata.users.some(user => user.username === username && user.password === password);
+        const isUserVerified = userdata.data.some(user => user.username === username && user.password === password);
         if(isUserVerified){
             const token = jwt.sign({id: username}, process.env.SECRET_TOKEN)
             res.json({username, token, message: "User Verfied"})
