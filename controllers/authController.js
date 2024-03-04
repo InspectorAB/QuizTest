@@ -19,7 +19,7 @@ const signupHandler = (req, res) => {
         const token = jwt.sign({ id: username }, process.env.SECRET_TOKEN);
         res.json({ message: `Success - Created new user --> ${username}::${token}`})
     }
-};
+}
 
 const loginHandler = (req, res) => {
     const { username, password } = req.body;
@@ -30,6 +30,6 @@ const loginHandler = (req, res) => {
         }else{
             res.status(401).json({message: "Invalid Credentials"})
         }
-};
+}
 
 module.exports = { loginHandler, signupHandler };;
