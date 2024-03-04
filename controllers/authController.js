@@ -22,6 +22,7 @@ const signupHandler = (req, res) => {
 }
 
 const loginHandler = (req, res) => {
+    console.log('inside');
     const { username, password } = req.body;
         const isUserVerified = userdata.users.some(user => user.username === username && user.password === password);
         if(isUserVerified){
