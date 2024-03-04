@@ -3,7 +3,7 @@ const quizzes = require('./db/quizzes');
 const cors = require('cors');
 const quizRouter = require("./router/quiz.router");
 const userdata = require('./db/users');
-const loginRouter = require('./controllers/authController');
+const loginRouter = require('./router/authrouter');
 const jwt = require("jsonwebtoken");
 const { v4: uuid } = require("uuid");
 
