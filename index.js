@@ -6,6 +6,7 @@ const userData = require('./db/users');
 const loginRouter = require('./controllers/authController');
 const jwt = require("jsonwebtoken");
 const { v4: uuid } = require("uuid");
+const userdata = require("../db/users");
 
 const app = express();
 
