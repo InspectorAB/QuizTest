@@ -1,6 +1,6 @@
 const express = require('express');
 
-const {loginHandler, signupHandler} = require("../controllers/authController");
+const loginHandler = require("../controllers/authController");
 
 const loginRouter = express.Router();
 const signupRouter = express.Router();
@@ -19,7 +19,7 @@ loginRouter.post("/", (req, res) => {
     }
 });
 
-signupRouter.route("/")
-    .post(signupHandler)
+// signupRouter.route("/")
+//     .post(signupHandler)
 
-module.exports = { loginRouter, signupRouter };
+module.exports = { loginRouter };
