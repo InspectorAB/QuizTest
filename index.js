@@ -3,6 +3,7 @@ const quizzes = require('./db/quizzes');
 const cors = require('cors');
 const quizRouter = require("./router/quiz.router");
 const userData = require('./db/users');
+const {loginRouter,signupRouter} = require('./controllers/authController');
 
 const app = express();
 
@@ -14,16 +15,8 @@ app.get('/',(req,res) =>{
     res.send('Hello Borld!')
 })
 
-app.post("/auth/login",(req,res) =>{
-    const {username,password} = req.body;
-    const isUserVerified = userData.data.some(user => user.username === username && user.password === password)
-    if(isUserVerified){
-        res.json({message:"User Verified"})
-    }else{
-        res.json({message:"Invalid cred"})
-    }
-})
-
+app.use("/auth/login", loginRouter);
+app.use("/auth/signup", signupRouter);
 app.use("/quiz",quizRouter);
 
 //https://difficult-pear-dragonfly.cyclic.app/quiz
