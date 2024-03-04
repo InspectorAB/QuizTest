@@ -1,32 +1,28 @@
 const express = require('express');
-const quizzes = require('./db/quizzes');
 const cors = require('cors');
+
 const quizRouter = require("./router/quiz.router");
-const userdata = require('./db/users');
-const loginRouter = require('./router/auth.router');
-const jwt = require("jsonwebtoken");
-const { v4: uuid } = require("uuid");
+const categoriesRouter = require("./router/categories.router");
+const { loginRouter, signupRouter } = require("./router/auth.router");
+const routeNotFound = require("./middleware/routeNotFound");
+const quizzes = require("./db/quizzes");
 
-const app = express();
-
-const port = 3000
+const app = express(); //Creating a server
 app.use(cors());
 app.use(express.json());
 
-app.get('/',(req,res) =>{
-    res.send('Hello Borld!')
+const PORT = 3000;
+
+app.get("/", (req, res) => {
+    res.send("hello geeks");
 })
 
+app.use("/categories", categoriesRouter)
+app.use("/quiz", quizRouter);
 app.use("/auth/login", loginRouter);
-//app.use("/auth/signup", signupRouter);
-app.use("/quiz",quizRouter);
+app.use("/auth/signup", signupRouter);
+app.use(routeNotFound);
 
-//https://difficult-pear-dragonfly.cyclic.app/quiz
-// dont need this now, routing through a quizRouter
-// app.get("/quiz",(req,res) =>{
-//     res.send(quizzes.data)
-// })
-
-app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`)
+app.listen(process.env.PORT || PORT, () => {
+    console.log("server started....");
 })
