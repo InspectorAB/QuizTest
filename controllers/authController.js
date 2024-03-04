@@ -19,17 +19,18 @@ const signupHandler = (req, res) => {
         const token = jwt.sign({ id: username }, process.env.SECRET_TOKEN);
         res.json({ message: `Success - Created new user --> ${username}::${token}`})
     }
-}
+};
 
-const loginHandler = (req, res) => {
+const loginHandler = (req, res, next) => {
     const { username, password } = req.body;
         const isUserVerified = userdata.users.some(user => user.username === username && user.password === password);
         if(isUserVerified){
             const token = jwt.sign({id: username}, process.env.SECRET_TOKEN)
             res.json({username, token, message: "User Verfied"})
+            next();
         }else{
             res.status(401).json({message: "Invalid Credentials"})
         }
-}
+};
 
 module.exports = { loginHandler, signupHandler };;
