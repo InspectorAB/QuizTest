@@ -3,7 +3,7 @@ const quizzes = require('./db/quizzes');
 const cors = require('cors');
 const quizRouter = require("./router/quiz.router");
 const userData = require('./db/users');
-const {loginRouter,signupRouter} = require('./controllers/authController');
+//const {loginRouter,signupRouter} = require('./controllers/authController');
 
 const app = express();
 
@@ -15,8 +15,8 @@ app.get('/',(req,res) =>{
     res.send('Hello Borld!')
 })
 
-app.use("/auth/login", loginRouter);
-app.use("/auth/signup", signupRouter);
+//app.use("/auth/login", loginRouter);
+//app.use("/auth/signup", signupRouter);
 app.use("/quiz",quizRouter);
 
 //https://difficult-pear-dragonfly.cyclic.app/quiz
