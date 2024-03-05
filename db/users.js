@@ -25,7 +25,7 @@ async function getUserData(){
     try{
         const db = await connectToMongoDB();
 
-        const collection = db.collection("users");
+        const collection = db.collection("Users");
 
         const userData = await collection.find().toArray();
 
