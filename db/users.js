@@ -3,7 +3,7 @@ const {MongoClient} = require('mongodb');
 
 const uri = "mongodb://localhost:27017";
 
-const dbName = "Users";
+const dbName = "quizapp";
 
 const client = new MongoClient(uri);
 
